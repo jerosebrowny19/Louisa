@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotating Card</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color:#efc9ff ;
+    }
+
+    .card {
+      width: 200px;
+      height: 300px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+    }
+
+    .card-front {
+        
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .card-back img {
+     width: 100%;
+     height: 100%;
+      object-fit: cover;
+    }
+
+    /*neon*/
+
+    
+    .neon {
+            margin-top: 2px;
+            padding: 20px;
+            width:100%;
+        }
+
+        .neon h1{
+            margin-left:-10px;
+            padding:30px;
+        }
+
+        p{
+          
+            background-color: #bc13fe;
+            border-radius: 10px;
+            padding:10px;
+            color:rgb(255, 255, 255);
+        }
+
+        .neonText {
+            color: #fff;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #bc13fe,
+                0 0 82px #bc13fe,
+                0 0 92px #bc13fe,
+                0 0 102px #bc13fe,
+                0 0 151px #bc13fe;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            animation: pulsate 1.5s infinite alternate;
+            border: 0.2rem solid #fff;
+            border-radius: 2rem;
+            padding: 0.4em;
+            box-shadow: 0 0 .2rem #fff,
+                0 0 .2rem #fff,
+                0 0 2rem #bc13fe,
+                0 0 0.8rem #bc13fe,
+                0 0 2.8rem #bc13fe,
+                inset 0 0 1.3rem #bc13fe;
+        }
+
+        @keyframes pulsate {
+            100% {
+                text-shadow:
+                    0 0 4px #fff,
+                    0 0 11px #fff,
+                    0 0 19px #fff,
+                    0 0 40px #bc13fe,
+                    0 0 80px #bc13fe,
+                    0 0 90px #bc13fe,
+                    0 0 100px #bc13fe,
+                    0 0 150px #bc13fe;
+            }
+
+            0% {
+                text-shadow:
+                    0 0 2px #fff,
+                    0 0 4px #fff,
+                    0 0 6px #fff,
+                    0 0 10px #bc13fe,
+                    0 0 45px #bc13fe,
+                    0 0 55px #bc13fe,
+                    0 0 70px #bc13fe,
+                    0 0 80px #bc13fe;
+            }
+        }
+        .cardss{
+           margin-left: 10px;
+            margin-top: 80px;
+        }
+  </style>
+</head>
+<body><BR><BR>
+<center><BR>
+    <div class="neon">
+        <h1 class="neonText">
+            Happy<br>birthday
+           </h1>
+    </div>
+    <div class="cardss"></div>
+  <div class="card" onclick="rotateCard()">
+    <div class="card-inner">
+      <div class="card-front">
+        <img width="300px" height="400px" src="./img/birth.png"><br>
+        
+      </div>
+      <div class="card-back">
+        <img  src="./img/silk.jpg" alt="Photo">
+        <p>silk ah parthutu suthama,<br>silu silunu valkaiya paarunga bro !!!</p><br><br>
+      </div>
+    </div>
+  </div></div>
+
+
+  
+</center>
+  <script>
+    function rotateCard() {
+      var card = document.querySelector('.card');
+      card.classList.toggle('rotate');
+    }
+  </script>
+
+</body>
+</html>
